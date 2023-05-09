@@ -15,7 +15,7 @@ const Search: NextPage = () => {
     const { data: results, refetch } = useQuery({ queryKey: ['search'], queryFn: 
         async () => {   
             const apiKey = process.env.NEXT_PUBLIC_API_KEY_TMDB_V3 ?? 'default_api_key';
-            const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${sid}&page=1&include_adult=false`)
+            const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${sid as string}&page=1&include_adult=false`)
             const data = await res.json() as MovieDB;
             return data.results
                 .filter(result => ['movie', 'tv'].includes(result.media_type))

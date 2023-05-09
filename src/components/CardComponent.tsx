@@ -10,7 +10,7 @@ interface CardComponentProps {
     clickable?: boolean;
 }
 
-const CardComponent = ({ result, hover = true, width = '100%', clickable = true }: CardComponentProps) => {
+const CardComponent = ({ result, hover = true, width = '100%' }: CardComponentProps) => {
     return (
         <Link href={`/${result.media_type}/${result.id}`} key={result.id} className="disabled">
             <div className={`flex flex-col relative rounded-md overflow-hidden cursor-pointer ${hover ? 'ease-in-out duration-300 transform hover:scale-105' : ''}`}>
