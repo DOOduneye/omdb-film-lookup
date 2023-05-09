@@ -51,9 +51,9 @@ const MovieComponent: NextPage = () => {
     }
 
     const allProviders = results.providers.results.US.flatrate.concat(results.providers.results.US.rent).concat(results.providers.results.US.buy);
-    const uniqueProviders = allProviders.filter((thing, index, self) => index === self.findIndex((t) => t.provider_id === thing.provider_id && t.provider_name === thing.provider_name))
-
-
+    const uniqueProviders = allProviders.filter((provider) => provider !== undefined)
+            .filter((thing, index, self) => index === self.findIndex((t) => t.provider_id === thing.provider_id && t.provider_name === thing.provider_name))
+           
     return (
         <main className="grid grid-flow-row auto-rows-max gap-5">
             <div className="flex flex-col items-center justify-center gap-5 pt-8">
@@ -96,7 +96,7 @@ const MovieComponent: NextPage = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-5 pr-5">
                     <h3 className="text-xl font-medium leading-7 text-slate-100">Watch Now</h3>
                     <div className="flex flex-row flex-wrap gap-4 pr-5">
                         {uniqueProviders.map((provider) => (

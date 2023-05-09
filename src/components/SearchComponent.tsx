@@ -27,7 +27,6 @@ const SearchComponent = () => {
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) =>{
         event.preventDefault();
         setSearch(event.target.value)
-        console.log(search);
     }
 
     return (
